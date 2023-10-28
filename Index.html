@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Animation UI</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            perspective: 1000px; /* Set the 3D perspective */
+        }
+
+        .card {
+            width: 200px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d; /* Enable 3D transformations */
+            animation: flip 5s infinite; /* Apply animation */
+        }
+
+        .card .side {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden; /* Hide the back side */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card .front {
+            background-color: #3498db;
+            transform: rotateY(0deg); /* Initial state */
+        }
+
+        .card .back {
+            background-color: #e74c3c;
+            transform: rotateY(180deg); /* Flipped state */
+        }
+
+        @keyframes flip {
+            0% {
+                transform: rotateY(0deg);
+            }
+            50% {
+                transform: rotateY(180deg);
+            }
+            100% {
+                transform: rotateY(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="side front">Front</div>
+        <div class="side back">Back</div>
+    </div>
+</body>
+</html>
